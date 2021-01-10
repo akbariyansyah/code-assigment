@@ -1,46 +1,59 @@
 ### Code Assignment
 
-## How to run this project 
+## How to run this project
 
-1. configure your config.json 
+### Without Docker
+1. configure your config.json
 2. import database.sql
 3. run the project
 
-*  build projetc
+*  build project
 
 ```
-$ go build -o main 
+$ go build -o main
 ```
 * Run app
-``` 
+```
 $ ./main
 ```
-* Run Test 
+* Run Test
 ```
 $ go test -v ./...
+```
+
+### With docker
+
+```
+$ docker-compose -f docker-compose.yml up -d
+```
+
+### Using Make
+
+```
+$ make run
 ```
 ## API Spec
 
 ### 1. Check Saldo
 
-- Request : 
+- Request :
     - Method : GET
     - Endpoint : ```/account/{account_number}```
-    - Header : 
+    - Header :
        - Accept : Application/json
- 
+
 - Response :
     - Code : 200
- ```json 
+ ```json
 {
     "account_number" : "555001",
     "customer_name" : "Bob Martin",
     "balance" : 10000
 }
- 
+
 ```
 
-### 2. Transfer 
+### 2. Transfer
 
 - Request :
     - Method : POST
@@ -49,7 +62,7 @@ $ go test -v ./...
          - Accept : Application/json
          - Content-Type: application/json
     - Body :
- ```json 
+ ```json
   {
     "to_account_number" : "555002",
     "amount" : 100
@@ -57,4 +70,3 @@ $ go test -v ./...
   ```
 - Response :
     - Code : 201     
-     

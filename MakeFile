@@ -1,5 +1,4 @@
-binary=main
+run:
+	docker-compose -f docker-compose.yml up -d
 test:
 	go test -v -cover ./...
-docker:
-    docker build -t
