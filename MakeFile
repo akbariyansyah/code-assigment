@@ -1,0 +1,5 @@
+binary=main
+test:
+	go test -v -cover ./...
+docker:
+    docker build -t
